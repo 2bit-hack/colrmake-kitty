@@ -1,0 +1,16 @@
+.picker {
+    padding: 10px;
+}
+
+.value {
+  border-left: 36px solid #000;
+  height: 36px;
+  margin-left: 12px;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.txt {
+    margin-left: 10px;
+}
