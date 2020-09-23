@@ -7,13 +7,14 @@ import "./App.css";
 import DefaultColors from './DefaultColors';
 import Keys from './Keys';
 import ColorView from './components/ColorView';
+import TerminalView from './components/TerminalView';
 
 const App = () => {
   const [colors, setColors] = useState(DefaultColors);
-  const [key, setKey] = useState('background');
+  const [key, setKey] = useState('bg');
 
   return (
-    <div className="App">
+    <div className="app">
       <div className="container">
         <div className="picker">
           <HexColorPicker color={colors[key]} onChange={(color) => {
@@ -30,6 +31,7 @@ const App = () => {
             {
               Array(3).fill(0).map((_, y) =>
               <ColorView
+                isSel={key}
                 key={Keys[x * 3 + y]}
                 title={Keys[x * 3 + y]}
                 color={colors[Keys[x * 3 + y]]}
@@ -40,6 +42,9 @@ const App = () => {
           ))
         }
         </div>
+      </div>
+      <div className="terminal">
+      <TerminalView colors={colors}/>
       </div>
     </div>
   );

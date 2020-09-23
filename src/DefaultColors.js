@@ -2,10 +2,10 @@
 /* ayu color scheme */
 
 const DefaultColors = {
-    background: '#0e1419',
-    foreground: '#e5e1cf',
+    bg: '#0e1419',
+    fg: '#e5e1cf',
     cursor: '#f19618',
-    selection_background: '#243340',
+    selBg: '#243340',
     // black
     color0: '#000000',
     color8: '#323232',
@@ -30,7 +30,7 @@ const DefaultColors = {
     // white
     color7: '#ffffff',
     color15: '#ffffff',
-    selection_foreground: '#0e1419',
+    selFg: '#0e1419',
 };
 
 export default DefaultColors;

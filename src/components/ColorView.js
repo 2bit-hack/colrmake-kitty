@@ -2,14 +2,13 @@ import React from 'react';
 
 import './ColorView.css';
 
-const ColorView = ({title, color, clickHandler}) => {
+const ColorView = ({title, color, clickHandler, isSel}) => {
     return (
         <div className="viewContainer" onClick={clickHandler}>
             <div className="demo" style={{backgroundColor: color}}/>
-            <h3 className="txt">{
+            <h3 className="txt" style={isSel === title ? {color: 'cyan'} : {}}> {
                 title
-                .split('_')
-                .join(' ')
+                .padEnd(10, ' ')
             }
             </h3>
         </div>

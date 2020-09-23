@@ -1,19 +1,19 @@
 .viewContainer {
-    width: 20%;
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: center;
-    margin: 0.1%;
+    margin: 0.2%;
 }
 
 .viewContainer:hover {
+    opacity: 0.8;
     cursor: pointer;
 }
 
 .demo {
-    height: 3vw;
-    width: 3vw;
+    height: 2vw;
+    width: 2vw;
     border: 1px solid white;
 }
 

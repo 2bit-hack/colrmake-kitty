@@ -1,8 +1,8 @@
 const Keys = [
-    'background',
-    'foreground',
+    'bg',
+    'fg',
     'cursor',
-    'selection_background',
+    'selBg',
     'color0',
     'color8',
     'color1',
@@ -19,7 +19,7 @@ const Keys = [
     'color14',
     'color7',
     'color15',
-    'selection_foreground',
+    'selFg',
 ];
 
 export default Keys;
