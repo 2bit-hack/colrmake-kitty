@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { HexColorPicker } from "react-colorful";
-import { Fab } from '@material-ui/core';
+import { Fab, Modal } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
 import "react-colorful/dist/index.css";
 import "./App.css";
@@ -11,15 +12,42 @@ import ColorView from './components/ColorView';
 import TerminalView from './components/TerminalView';
 import saveFile from './saveFile';
 
+const useStyles = makeStyles((theme) => ({
+  modal: {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  paper: {
+    backgroundColor: '#000000',
+    border: '2px solid #fff',
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
+
 const App = () => {
   const [colors, setColors] = useState(DefaultColors);
   const [key, setKey] = useState('bg');
+  const [open, setOpen] = useState(false);
+
+  const classes = useStyles();
 
   return (
     <div className="app">
-      <Fab color="primary" size="large" aria-label="save" onClick={() => saveFile(colors)}>
+      <Fab color="primary" size="large" aria-label="save" onClick={() => setOpen(true)}>
         <SaveIcon />
       </Fab>
+      <Modal
+      open={open}
+      onClose={() => setOpen(false)}
+      className={classes.modal}
+      aria-labelledby="save-modal"
+      aria-describedby="save-file-with-name">
+        <div className={classes.paper}>
+          <h2 style={{color: "white"}}>This is a modal!</h2>
+        </div>
+      </Modal>
       <div className="container">
         <div className="picker">
           <HexColorPicker color={colors[key]} onChange={(color) => {
