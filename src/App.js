@@ -37,6 +37,11 @@ const App = () => {
 
   const classes = useStyles();
 
+  const handleModalClose = () => {
+    setText('UserTheme');
+    setOpen(false);
+  }
+
   return (
     <div className="app">
       <Fab color="primary" size="large" aria-label="save" onClick={() => setOpen(true)}>
@@ -44,7 +49,7 @@ const App = () => {
       </Fab>
       <Modal
       open={open}
-      onClose={() => setOpen(false)}
+      onClose={handleModalClose}
       className={classes.modal}
       aria-labelledby="save-modal"
       aria-describedby="save-file-with-name">
