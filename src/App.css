@@ -45,6 +45,13 @@ div {
     align-items: center;
 }
 
+.text-btn {
+    margin: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .terminal {
     display: flex;
     /* justify-content: space-between; */

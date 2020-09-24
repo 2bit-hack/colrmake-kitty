@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HexColorPicker } from "react-colorful";
-import { Fab, Modal } from '@material-ui/core';
+import { Fab, Modal, TextField, Button } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import SaveIcon from '@material-ui/icons/Save';
 import "react-colorful/dist/index.css";
@@ -12,6 +12,9 @@ import ColorView from './components/ColorView';
 import TerminalView from './components/TerminalView';
 import saveFile from './saveFile';
 
+const removeWhitespace = str => str.replace(/\s+/g, '');
+const checkIfEmpty = str => removeWhitespace(str) === '';
+
 const useStyles = makeStyles((theme) => ({
   modal: {
     display: 'flex',
@@ -19,8 +22,8 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    backgroundColor: '#000000',
-    border: '2px solid #fff',
+    backgroundColor: 'black',
+    border: '2px solid white',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
   },
@@ -30,6 +33,7 @@ const App = () => {
   const [colors, setColors] = useState(DefaultColors);
   const [key, setKey] = useState('bg');
   const [open, setOpen] = useState(false);
+  const [text, setText] = useState('UserTheme');
 
   const classes = useStyles();
 
@@ -45,7 +49,25 @@ const App = () => {
       aria-labelledby="save-modal"
       aria-describedby="save-file-with-name">
         <div className={classes.paper}>
-          <h2 style={{color: "white"}}>This is a modal!</h2>
+          <h3 style={{color: "white"}}>Enter theme name:</h3>
+          <div className="text-btn">
+          <TextField
+          color="primary"
+          value={text}
+          onChange={(event) => {
+            setText(event.target.value);
+          }}
+          error={checkIfEmpty(text)}
+          id="name-text"
+          label="Name"
+          variant="outlined" />
+          <Button
+          size='large'
+          disabled={checkIfEmpty(text)}
+          onClick={() => saveFile(colors, text.trim())}>
+            Save
+          </Button>
+          </div>
         </div>
       </Modal>
       <div className="container">
