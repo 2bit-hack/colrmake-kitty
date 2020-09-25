@@ -4,7 +4,7 @@
 
 colrmake uses [Dexpota's kitty themes](https://github.com/dexpota/kitty-themes) as a reference for the formatting and layout of the color schemes
 
-### 🛠️ Work In Progress 🛠️
+<img src="https://github.com/2bit-hack/colrmake-kitty/blob/master/images/colrmake.png">
 
 ## Release
 
